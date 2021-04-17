@@ -1,5 +1,21 @@
-<h1>List1</h1>
-<% @lists.each do |list| %>
-  <%= list.name %>
-<% end %>
-<%= link_to 'Inserir a lista', new_list_path(@list) %>
+<h1>Bem-vindo ao nosso site!</h1>
+<div>
+  <h2>Os filmes indicados:</h2>
+  <ul class="list-group">
+  <% @movies.each do |movie| %>
+    <li class="list-group-item"><%= movie.title %></li>
+    <p><%= movie.overview %></p>
+    <p>Nota: <%= movie.rating %></p>
+  <% end %>
+  </ul>
+</div>
+<div>
+  <h2>As listas disponíveis:</h2>
+  <ul class="list-group">
+  <% @lists.each do |list| %>
+    <li class="list-group-item"><%= link_to list.name, list_path(list) %></li>
+  <% end %>
+  </ul>
+</div>
+<button type="button" class="btn btn-outline-primary">
+  <%= link_to 'Inserir uma nova lista', new_list_path(@list) %></button>

@@ -1,15 +1,12 @@
 <h1><%= @list.name %></h1>
-<h2><%= @list.bookmarks.empty? %></h2>
+<p>Comentários:</p>
 <ul class="list-group">
-  <% @movies.each do |movie| %>
-    <li class="list-group-item"><%= movie.title %></li>
-  <% end %>
-</ul><ul class="list-group">
   <% @list.bookmarks.each do |bookmark| %>
     <li class="list-group-item"><%= bookmark.comment %></li>
   <% end %>
 </ul>
-<p>Find me in app/views/lists/show.html.erb</p>
 
-<%= link_to 'Leave a comment', new_list_bookmark_path(@list) %>
+<p><%= link_to 'Deixe um comentário', new_list_bookmark_path(@list) %></p>
+<p><%= link_to 'Voltar para o início', root_path %></p>
+
 
